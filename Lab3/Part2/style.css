@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+}
+input {
+  width: 300px;
+  border-radius: 20px;
+}
+
+input:hover {
+  background-color: pink;
+  box-shadow: 10px 5px 5px skyblue;
+}

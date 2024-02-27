@@ -1,0 +1,19 @@
+input:invalid {
+  border: solid #f10909;
+}
+form > div > p.error {
+  display: none;
+  font-size: 0.8em;
+  position: absolute;
+}
+
+form > div > input:invalid:not(:focus):not(:placeholder-shown) ~ .error {
+  display: block;
+  color: red;
+}
+.email {
+  margin-top: 40px;
+}
+.btn {
+  margin-top: 40px;
+}

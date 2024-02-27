@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Increase Line</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="500"
+      height="500"
+      style="border: 1px solid black"
+    >
+    </canvas>
+
+    <script>
+      // Get the canvas element and its context
+      let c = document.getElementById("canvas");
+      let ctx = c.getContext("2d");
+
+      // Initialize starting coordinates
+      let x = 0,
+        y = 0;
+
+      // Move the drawing pen to the starting position
+      ctx.moveTo(0, 0);
+
+      // Function to increase the line length
+      function increaseLine() {
+        x += 50;
+        y += 50;
+
+        // Draw a line to the new coordinates
+        ctx.lineTo(x, y);
+        ctx.stroke();
+
+        // Check if the line has reached the end of the canvas
+        if (x > 500) {
+          alert("Animation Ended");
+          clearInterval(animation);
+        }
+      }
+
+      // Set interval to call the increaseLine function every second
+      let animation = setInterval(increaseLine, 1000);
+    </script>
+  </body>
+</html>

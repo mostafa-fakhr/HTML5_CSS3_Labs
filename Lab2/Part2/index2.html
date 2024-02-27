@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Circle Gradient</title>
+  </head>
+  <body>
+    <canvas id="demoCanvas" width="500" height="600"></canvas>
+    <script>
+      var canvas = document.getElementById("demoCanvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        // Create outer circle gradient
+        var outerGradient = ctx.createRadialGradient(
+          150,
+          150,
+          50,
+          150,
+          150,
+          180
+        ); // Increased outer circle radius
+        outerGradient.addColorStop(0, "darkblue"); // Slightly darker blue
+        outerGradient.addColorStop(1, "white");
+
+        // Draw outer circle
+        ctx.beginPath();
+        ctx.arc(150, 150, 150, 0, 2 * Math.PI); // Increased outer circle radius
+        ctx.fillStyle = outerGradient;
+        ctx.fill();
+
+        // Create inner circle gradient
+        var innerGradient = ctx.createLinearGradient(70, 150, 230, 150); // Left to right gradient
+        innerGradient.addColorStop(0, "darkblue"); // Slightly darker blue on the left
+        innerGradient.addColorStop(1, "lightblue"); // Lighter blue on the right
+
+        // Draw inner circle
+        ctx.beginPath();
+        ctx.arc(150, 150, 120, 0, 2 * Math.PI); // Increased inner circle radius
+        ctx.fillStyle = innerGradient;
+        ctx.fill();
+
+        // Write letter "N" inside the inner circle
+        ctx.font = "250px Arial"; // Reduced font size
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("N", 150, 170); // Centered within the inner circle
+      }
+    </script>
+  </body>
+</html>
